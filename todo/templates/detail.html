@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block body %}
+<div>
+    <h2>{{ todo.title }}</h2>
+    <table class="table">
+        <tr>
+            <th>Description</th>
+            <td>{{ todo.description }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ todo.deadline|date:'m/d/y' }}</td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td>{{ todo.deadline|time }}</td>
+        </tr>
+    </table>
+    <a href="{% url 'edit-todo' todo.id %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'del-todo' todo.id %}" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}
